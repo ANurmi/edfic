@@ -86,7 +86,7 @@ always_comb begin : main_comb
     lines_d[local_addr].ie = cfg_wdata_i[0];
   end
   else if (read_event) begin
-    cfg_rdata_o = {
+    cfg_rdata_o = 32'({
       1'b0,
       lines_q[local_addr].dl,
       4'b0,
@@ -94,7 +94,7 @@ always_comb begin : main_comb
       lines_q[local_addr].trig_type,
       lines_q[local_addr].ip,
       lines_q[local_addr].ie
-      };
+      });
   end
 
   // React to external interrupt from gateway
