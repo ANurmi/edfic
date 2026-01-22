@@ -1,4 +1,4 @@
-module irq_gateway #(
+module edfic_gateway #(
   parameter int unsigned NrInputs = 32
 )(
   input  logic                clk_i,
@@ -48,5 +48,5 @@ for (genvar i=0; i<NrInputs; i++) begin : g_lines
 
 end : g_lines
 
-endmodule : irq_gateway
+endmodule : edfic_gateway
 

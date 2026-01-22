@@ -1,4 +1,4 @@
-module irq_arbiter #(
+module edfic_arbiter #(
   parameter  int unsigned NrInputs  = 32,
   parameter  int unsigned PrioWidth = 8,
   localparam int unsigned IdxWidth  = $clog2(NrInputs)
@@ -63,7 +63,9 @@ for (genvar i=0; i<IdxWidth; i++) begin : g_levels
       localparam int unsigned IdxB = LayerBaseIdx  + 2*k+1;
       localparam int unsigned IdxO = OutputBaseIdx + k;
 
+// verilator lint_off UNOPTFLAT
       sel_e sel;
+// verilator lint_on UNOPTFLAT
       assign sel = arbitrate( nodes[IdxA].valid, nodes[IdxB].valid,
                     nodes[IdxA].prio, nodes[IdxB].prio);
 
@@ -96,5 +98,5 @@ function sel_e arbitrate(
 
 endfunction
 
-endmodule : irq_arbiter
+endmodule : edfic_arbiter
 

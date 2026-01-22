@@ -1,4 +1,4 @@
-module edf_ic #(
+module edfic_top #(
     parameter  int unsigned NrIrqs     = 4,
     parameter  int unsigned TsWidth    = 24,
     // Set clipping of TS to exchange bits for granularity
@@ -114,7 +114,7 @@ always_comb begin : main_comb
 
 end : main_comb
 
-irq_arbiter #(
+edfic_arbiter #(
   .NrInputs (NrIrqs),
   .PrioWidth(TsWidth)
 ) i_arb (
@@ -125,7 +125,7 @@ irq_arbiter #(
   .idx_o   (irq_id_o)
 );
 
-irq_gateway #(
+edfic_gateway #(
   .NrInputs (NrIrqs)
 ) i_gw (
   .clk_i,
@@ -143,5 +143,5 @@ end else begin
   assign irq_dl_o = {irq_dl_arb, (TsClip'(0))};
 end
 
-endmodule : edf_ic
+endmodule : edfic_top
 

@@ -1,4 +1,4 @@
-# edf-ic
+# edfic
 
 An interrupt controller for deadline-based interrupt handling.
 

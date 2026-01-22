@@ -1,5 +1,5 @@
 package:
-  name: edf-ic
+  name: edfic
   authors:
     - ""
 
@@ -9,8 +9,8 @@ dependencies:
 sources:
   files:
   # Level 0
-    - rtl/irq_gateway.sv
-    - rtl/irq_arbiter.sv
+    - rtl/edfic_gateway.sv
+    - rtl/edfic_arbiter.sv
   # Level 1
-    - rtl/edf_ic.sv
+    - rtl/edfic_top.sv
 
