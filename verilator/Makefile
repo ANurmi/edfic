@@ -1,4 +1,4 @@
-DUT = edf_ic
+DUT = edfic_top
 TB  = $(VERIL_DIR)/TbEdfIc.cpp
 
 .PHONY: lint

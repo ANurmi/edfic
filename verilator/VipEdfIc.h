@@ -17,12 +17,12 @@ typedef struct {
 
 class VipEdfIc {
   public:
-    Vedf_ic       *m_dut;
+    Vedfic_top    *m_dut;
     VerilatedFstC* m_trace;
     uint64_t       m_tickcount;
     mtimer_t       mtimer;
 
-    VipEdfIc(Vedf_ic* dut, const char* fst_name) :
+    VipEdfIc(Vedfic_top* dut, const char* fst_name) :
         m_trace(NULL), m_tickcount(01) {
       m_dut = dut;
       mtimer.running = false;

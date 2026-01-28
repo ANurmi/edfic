@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdint.h>
 
-#include "Vedf_ic.h"
+#include "Vedfic_top.h"
 #include "verilated.h"
 #include "verilated_fst_c.h"
 #include "VipEdfIc.h"
@@ -12,8 +12,8 @@ int main(int argc, char** argv) {
 
   const char* wavePath = "../build/waveform.fst";
   Verilated::commandArgs(argc, argv);
-  Vedf_ic*  dut = new Vedf_ic;
-  VipEdfIc* vip = new VipEdfIc(dut, wavePath);
+  Vedfic_top* dut = new Vedfic_top;
+  VipEdfIc*   vip = new VipEdfIc(dut, wavePath);
 
   vip->raise_reset();
 
