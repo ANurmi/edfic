@@ -84,6 +84,9 @@ always_comb begin : main_comb
     lines_d[local_addr].trig_type = cfg_wdata_i[2];
     lines_d[local_addr].ip = cfg_wdata_i[1];
     lines_d[local_addr].ie = cfg_wdata_i[0];
+    if (cfg_wdata_i[1]) begin
+      lines_d[local_addr].ts = {1'b0, lines_q[local_addr].dl} + mtime_i[(TsWidth-1)+TsClip:TsClip];
+    end
   end
   else if (read_event) begin
     cfg_rdata_o = 32'({
