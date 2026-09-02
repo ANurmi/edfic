@@ -14,7 +14,7 @@ logic [NrInputs-1:0] irqs_d, irqs_q;
 
 assign irqs_d = irqs_i;
 
-always @(posedge clk_i) begin
+always @(posedge clk_i or negedge rst_ni) begin
   if (~rst_ni) begin
     irqs_q <= '0;
   end else begin
